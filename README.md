@@ -1,9 +1,12 @@
 # TODO App using Spring MVC 4.0 Restful web services, Angular 4 and Mongo DB
 
-Prerequisites
+## Prerequisites
 Mongo DB
+
 Eclipse J2EE
+
 Tomcat Server v7.0
+
 
 1. Install Mongodb
 create a new database 'mkdb'
