@@ -25,19 +25,12 @@ public class DBUtility {
 		String port = prop.getProperty("port");
 		String url = prop.getProperty("url");
 		MongoClient mongo = new MongoClient(url, new Integer(port));
-		MongoDatabase database = mongo.getDatabase("test");
+		MongoDatabase database = mongo.getDatabase("mkdb");
 		return database;
 	}
 
 	public static void createTodoCollection(MongoDatabase database) {
 		MongoCollection<Document> coll = database.getCollection("todo");
-	}
-
-	public static void main(String arg[]) {
-		MongoDatabase database = DBUtility.getDatabase();
-		if (database != null) {
-			DBUtility.createTodoCollection(database);
-		}
 	}
 
 }
