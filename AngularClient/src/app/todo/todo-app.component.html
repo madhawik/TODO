@@ -1,0 +1,36 @@
+<section class="todoapp">
+	<header class="header">
+		<h1>Todos</h1>
+		<div class="form-group">
+
+			<input placeholder="What needs to be done?" autofocus=""
+				[(ngModel)]="newTodo.taskName" (keyup.enter)="addTodo()"
+				class="form-control span6" required>
+			<div *ngIf="isNewTodo" class="alert alert-danger">required</div>
+			<select [(ngModel)]="newTodo.taskPriority" class="form-control">
+				<option>High</option>
+				<option>Medium</option>
+				<option>Low</option>
+			</select>
+			<button class="btn btn-success" (click)="addTodo()">Add</button>
+		</div>
+	</header>
+	<section class="main" *ngIf="allTodos && allTodos.length > 0">
+		<ul class="todo-list">
+			<li *ngFor="let todo of allTodos"
+				[class.completed]="todo.taskStatus!='Active'">
+				<div class="form-group">
+					<input class="toggle" type="checkbox"
+						(click)="toggleTodoComplete(todo)"
+						[checked]="todo.taskStatus!='Active'"> <label class="strikethrough">{{todo.taskName}}</label>
+					<button (click)="removeTodo(todo)" class="btn">X</button>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	<footer class="footer" *ngIf="allTodos && (allTodos | activeTasks).length > 0">
+		<span class="todo-count"><strong>{{(allTodos | activeTasks).length}}</strong>
+			{{(allTodos | activeTasks).length == 1 ? 'item' : 'items'}} left</span>
+	</footer>
+</section>

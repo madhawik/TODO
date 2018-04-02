@@ -1,0 +1,7 @@
+{
+	"/service": 
+	{
+		"target" : "http://localhost:8080/SpringService/",
+		"secure" : false
+	}
+}
