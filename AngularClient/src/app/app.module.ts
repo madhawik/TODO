@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import {TodoService} from './todo.service';
 import {TodoDataService} from './todo-data.service';
 import {TodoAppComponent} from './todo/todo-app.component';
 import {ActiveTaskPipe} from './todo/todo-app.pipe';
@@ -21,7 +20,7 @@ import {ActiveTaskPipe} from './todo/todo-app.pipe';
     HttpModule,
     HttpClientModule
   ],
-  providers: [TodoService,TodoDataService],
+  providers: [TodoDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
